@@ -1,7 +1,14 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
+import AppAside from "@/components/AppAside.astro";
+import AppFeaturedArticle from "@/components/AppFeaturedArticle.astro";
+import AppArticlesSection from "@/components/AppArticlesSection.astro";
 ---
 
 <MainLayout title="Frontend Mentor | News Homepage" description="A Frontend Mentor Challenge">
-  <!-- Begin your journey here... -->
+  <main>
+    <AppFeaturedArticle />
+    <AppAside />
+    <AppArticlesSection />
+  </main>
 </MainLayout>
