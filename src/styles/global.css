@@ -9,3 +9,15 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700 800;
+  src: url("/fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
+  font-display: swap;
+}
