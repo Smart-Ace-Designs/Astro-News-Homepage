@@ -5,10 +5,19 @@ import AppFeaturedArticle from "@/components/AppFeaturedArticle.astro";
 import AppArticlesSection from "@/components/AppArticlesSection.astro";
 ---
 
-<MainLayout title="Frontend Mentor | News Homepage" description="A Frontend Mentor Challenge">
-  <main class="container mx-auto">
-    <AppFeaturedArticle />
-    <AppAside />
-    <AppArticlesSection />
+<MainLayout
+  title="Frontend Mentor | News Homepage"
+  description="A news homepage challenge from Frontend Mentor."
+>
+  <main class="mx-auto max-w-[1110px]">
+    <div class="grid grid-cols-3 gap-4">
+      <div class="col-span-2">
+        <AppFeaturedArticle />
+      </div>
+      <AppAside />
+      <div class="col-span-3">
+        <AppArticlesSection />
+      </div>
+    </div>
   </main>
 </MainLayout>
