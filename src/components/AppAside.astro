@@ -1,18 +1,20 @@
 ---
 import AppAsideArticle from "@/components/AppAsideArticle.astro";
+import { getCollection } from "astro:content";
+
+const asideArticles = await getCollection("asideArticles");
 ---
 
-<aside class="bg-theme-very-dark-blue text-theme-off-white p-6">
-  <h2 class="text-theme-soft-orange text-3xl font-bold">New</h2>
-  <div>
-    <AppAsideArticle title="Hydrogen VS Electric Cars">
-      Will hydrogen-fueled cars ever catch up to EVs?
-    </AppAsideArticle>
-    <AppAsideArticle title="The Downsides of AI Artistry">
-      What are the possible adverse effects of on-demand AI image generation?
-    </AppAsideArticle>
-    <AppAsideArticle title="Is VC Funding Drying Up?">
-      Private funding by VC firms is down 50% YOY. We take a look at what that means.
-    </AppAsideArticle>
-  </div>
+<aside class="bg-theme-very-dark-blue text-theme-off-white px-6 pt-6">
+  <h2 class="text-theme-soft-orange text-[2.5rem] font-bold">New</h2>
+  {
+    asideArticles.map((article, index) => (
+      <AppAsideArticle
+        class={index !== asideArticles.length - 1 ? "border-theme-dark-grayish-blue border-b" : ""}
+        title={article.data.title}
+      >
+        {article.data.text}
+      </AppAsideArticle>
+    ))
+  }
 </aside>

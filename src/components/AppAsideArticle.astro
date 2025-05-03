@@ -1,12 +1,13 @@
 ---
 interface Props {
   title: string;
+  class: string;
 }
 
-const { title } = Astro.props;
+const { title, class: className } = Astro.props;
 ---
 
-<article class="border-theme-dark-grayish-blue border-b pb-4">
-  <h3>{title}</h3>
-  <p><slot /></p>
+<article class:list={[className]}>
+  <h3 class="text-theme-off-white text-[1.2rem] font-bold">{title}</h3>
+  <p class="text-theme-off-white/50 text-md leading-relaxed"><slot /></p>
 </article>
