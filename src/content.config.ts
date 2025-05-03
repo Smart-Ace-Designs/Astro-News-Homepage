@@ -9,4 +9,14 @@ const asideArticles = defineCollection({
   }),
 });
 
-export const collections = { asideArticles };
+const mainArticles = defineCollection({
+  loader: file("src/data/articles.json"),
+  schema: z.object({
+    number: z.string(),
+    title: z.string(),
+    imagePath: z.string(),
+    text: z.string(),
+  }),
+});
+
+export const collections = { asideArticles, mainArticles };
