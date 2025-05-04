@@ -21,6 +21,7 @@
   --color-theme-very-dark-blue: hsl(240, 100%, 5%);
 
   --text-base: 0.9375rem;
+  --text-base--line-height: calc(1.25 / 0.9375);
 }
 
 @font-face {
