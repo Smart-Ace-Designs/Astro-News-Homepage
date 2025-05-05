@@ -23,6 +23,8 @@ const { title = "Astro", description = "An Astro website." } = Astro.props;
   </head>
   <body class="font-inter text-theme-very-dark-blue bg-theme-off-white text-base">
     <AppNavbar />
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
