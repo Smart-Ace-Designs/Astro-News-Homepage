@@ -10,8 +10,9 @@ const asideArticles = await getCollection("asideArticles");
   {
     asideArticles.map((article, index) => (
       <AppAsideArticle
-        class={index !== asideArticles.length - 1 ? "border-theme-dark-grayish-blue border-b" : ""}
         title={article.data.title}
+        link={article.data.link}
+        class={index !== asideArticles.length - 1 ? "border-theme-dark-grayish-blue border-b" : ""}
       >
         {article.data.text}
       </AppAsideArticle>

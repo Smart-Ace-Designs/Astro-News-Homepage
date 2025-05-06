@@ -6,6 +6,7 @@ const asideArticles = defineCollection({
   schema: z.object({
     title: z.string(),
     text: z.string(),
+    link: z.string(),
   }),
 });
 

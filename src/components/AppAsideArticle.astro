@@ -1,15 +1,16 @@
 ---
 interface Props {
   title: string;
+  link: string;
   class: string;
 }
 
-const { title, class: className } = Astro.props;
+const { title, link = "#", class: className } = Astro.props;
 ---
 
 <article class:list={[className]} class="flex flex-col gap-3 py-6">
   <a
-    href="/"
+    href={link}
     class="text-theme-off-white hover:text-theme-soft-orange text-[1.25rem] font-bold transition-colors delay-100"
   >
     {title}
