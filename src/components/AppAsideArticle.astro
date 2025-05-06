@@ -8,6 +8,8 @@ const { title, class: className } = Astro.props;
 ---
 
 <article class:list={[className]} class="flex flex-col gap-3 py-6">
-  <h3 class="text-theme-off-white text-[1.25rem] font-bold">{title}</h3>
+  <a href="/" class="text-theme-off-white text-[1.25rem] font-bold">
+    {title}
+  </a>
   <p class="text-theme-off-white/60 leading-relaxed"><slot /></p>
 </article>
