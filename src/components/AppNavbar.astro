@@ -24,11 +24,37 @@
   >
     <img src="/icon-menu.svg" alt="Menu" />
   </button>
+
+  <div
+    id="mobileMenu"
+    class="bg-theme-off-white fixed top-0 right-0 hidden h-screen w-1/2 p-4 sm:hidden"
+  >
+    <button class="absolute top-4 right-4" id="closeMenu">
+      <img src="/icon-menu-close.svg" alt="Close menu" />
+    </button>
+    <nav class="mt-12">
+      <ul class="flex flex-col gap-4">
+        <li class="hover:text-theme-soft-red transition-colors delay-100"><a href="/">Home</a></li>
+        <li class="hover:text-theme-soft-red transition-colors delay-100"><a href="/">New</a></li>
+        <li class="hover:text-theme-soft-red transition-colors delay-100">
+          <a href="/">Popular</a>
+        </li>
+        <li class="hover:text-theme-soft-red transition-colors delay-100">
+          <a href="/">Trending</a>
+        </li>
+        <li class="hover:text-theme-soft-red transition-colors delay-100">
+          <a href="/">Categories</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <script>
   const menuToggle = document.getElementById("menuToggle") as HTMLButtonElement;
   const menuIcon = menuToggle.querySelector("img") as HTMLImageElement;
+  const mobileMenu = document.getElementById("mobileMenu");
+  const closeMenu = document.getElementById("closeMenu") as HTMLButtonElement;
   let isMenuOpen = false;
 
   menuToggle.addEventListener("click", () => {
@@ -37,5 +63,13 @@
       menuIcon.src = isMenuOpen ? "/icon-menu-close.svg" : "/icon-menu.svg";
       menuToggle.setAttribute("aria-expanded", isMenuOpen.toString());
     }
+    mobileMenu?.classList.toggle("hidden");
+  });
+
+  closeMenu?.addEventListener("click", () => {
+    isMenuOpen = false;
+    menuIcon.src = "/icon-menu.svg";
+    menuToggle.setAttribute("aria-expanded", isMenuOpen.toString());
+    mobileMenu?.classList.add("hidden");
   });
 </script>
