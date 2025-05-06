@@ -6,9 +6,10 @@ interface Props {
   number: string;
   title: string;
   imagePath: string;
+  link: string;
 }
 
-const { number, title, imagePath } = Astro.props;
+const { number, title, imagePath, link } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
 if (!images[imagePath])
   throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
@@ -26,11 +27,12 @@ if (!images[imagePath])
   </div>
   <div class="flex flex-col justify-between gap-2">
     <span class="text-theme-soft-red text-3xl font-bold">{number}</span>
-    <h3
+    <a
+      href={link}
       class="text-theme-very-dark-blue hover:text-theme-soft-red cursor-pointer text-lg font-extrabold transition-colors delay-100"
     >
       {title}
-    </h3>
+    </a>
     <p class="text-theme-dark-grayish-blue">
       <slot />
     </p>

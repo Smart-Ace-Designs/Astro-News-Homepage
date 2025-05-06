@@ -12,6 +12,7 @@ const mainArticles = await getCollection("mainArticles");
         number={article.data.number}
         title={article.data.title}
         imagePath={article.data.imagePath}
+        link={article.data.link}
       >
         {article.data.text}
       </AppArticle>

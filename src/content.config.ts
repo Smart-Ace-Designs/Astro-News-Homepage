@@ -17,6 +17,7 @@ const mainArticles = defineCollection({
     title: z.string(),
     imagePath: z.string(),
     text: z.string(),
+    link: z.string(),
   }),
 });
 
