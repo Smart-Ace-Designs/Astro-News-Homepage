@@ -5,7 +5,7 @@ interface Props {
   class: string;
 }
 
-const { title, link = "#", class: className } = Astro.props;
+const { title, link, class: className } = Astro.props;
 ---
 
 <article class:list={[className]} class="flex flex-col gap-3 py-6">
