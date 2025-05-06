@@ -55,25 +55,27 @@
 </header>
 
 <script>
-  const menuToggle = document.getElementById("menuToggle") as HTMLButtonElement;
-  const menuIcon = menuToggle.querySelector("img") as HTMLImageElement;
-  const mobileMenu = document.getElementById("mobileMenu");
-  const closeMenu = document.getElementById("closeMenu") as HTMLButtonElement;
-  let isMenuOpen = false;
+  document.addEventListener("astro:page-load", () => {
+    const menuToggle = document.getElementById("menuToggle") as HTMLButtonElement;
+    const menuIcon = menuToggle.querySelector("img") as HTMLImageElement;
+    const mobileMenu = document.getElementById("mobileMenu");
+    const closeMenu = document.getElementById("closeMenu") as HTMLButtonElement;
+    let isMenuOpen = false;
 
-  menuToggle.addEventListener("click", () => {
-    isMenuOpen = !isMenuOpen;
-    if (menuIcon) {
-      menuIcon.src = isMenuOpen ? "/icon-menu-close.svg" : "/icon-menu.svg";
+    menuToggle.addEventListener("click", () => {
+      isMenuOpen = !isMenuOpen;
+      if (menuIcon) {
+        menuIcon.src = isMenuOpen ? "/icon-menu-close.svg" : "/icon-menu.svg";
+        menuToggle.setAttribute("aria-expanded", isMenuOpen.toString());
+      }
+      mobileMenu?.classList.toggle("hidden");
+    });
+
+    closeMenu?.addEventListener("click", () => {
+      isMenuOpen = false;
+      menuIcon.src = "/icon-menu.svg";
       menuToggle.setAttribute("aria-expanded", isMenuOpen.toString());
-    }
-    mobileMenu?.classList.toggle("hidden");
-  });
-
-  closeMenu?.addEventListener("click", () => {
-    isMenuOpen = false;
-    menuIcon.src = "/icon-menu.svg";
-    menuToggle.setAttribute("aria-expanded", isMenuOpen.toString());
-    mobileMenu?.classList.add("hidden");
+      mobileMenu?.classList.add("hidden");
+    });
   });
 </script>
