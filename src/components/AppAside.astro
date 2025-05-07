@@ -6,7 +6,7 @@ const asideArticles = await getCollection("asideArticles");
 ---
 
 <aside class="bg-theme-very-dark-blue text-theme-off-white px-6 pt-6" aria-label="Related content">
-  <h2 class="text-theme-soft-orange text-3xl font-bold xl:text-[2.5rem]">New</h2>
+  <p class="text-theme-soft-orange text-3xl font-bold xl:text-[2.5rem]">New</p>
   {
     asideArticles.map((article, index) => (
       <AppAsideArticle
