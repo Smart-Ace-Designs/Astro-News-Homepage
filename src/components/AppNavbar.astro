@@ -27,7 +27,7 @@
 
   <div
     id="mobileMenu"
-    class="bg-theme-off-white fixed top-0 right-0 hidden h-screen w-2/3 p-6 sm:hidden"
+    class="bg-theme-off-white fixed top-0 right-0 z-10 hidden h-screen w-2/3 p-6 sm:hidden"
   >
     <button class="absolute top-6 right-4" id="closeMenu">
       <img src="/icon-menu-close.svg" alt="Close menu" />
@@ -60,6 +60,7 @@
     const menuIcon = menuToggle.querySelector("img") as HTMLImageElement;
     const mobileMenu = document.getElementById("mobileMenu");
     const closeMenu = document.getElementById("closeMenu") as HTMLButtonElement;
+    const overlay = document.getElementById("overlay");
     let isMenuOpen = false;
 
     menuToggle.addEventListener("click", () => {
@@ -69,6 +70,7 @@
         menuToggle.setAttribute("aria-expanded", isMenuOpen.toString());
       }
       mobileMenu?.classList.toggle("hidden");
+      overlay?.classList.toggle("hidden");
     });
 
     closeMenu?.addEventListener("click", () => {
@@ -76,6 +78,7 @@
       menuIcon.src = "/icon-menu.svg";
       menuToggle.setAttribute("aria-expanded", isMenuOpen.toString());
       mobileMenu?.classList.add("hidden");
+      overlay?.classList.add("hidden");
     });
   });
 </script>
