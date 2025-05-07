@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 const asideArticles = await getCollection("asideArticles");
 ---
 
-<aside class="bg-theme-very-dark-blue text-theme-off-white px-6 pt-6">
+<aside class="bg-theme-very-dark-blue text-theme-off-white px-6 pt-6" aria-label="Related content">
   <h2 class="text-theme-soft-orange text-[2.5rem] font-bold">New</h2>
   {
     asideArticles.map((article, index) => (
