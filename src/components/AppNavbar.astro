@@ -54,6 +54,14 @@
   </div>
 </header>
 
+<!-- Mobile menu overlay -->
+<div
+  class="bg-theme-dark-grayish-blue/50 fixed top-0 left-0 hidden h-full w-full sm:hidden"
+  id="overlay"
+  aria-hidden="true"
+>
+</div>
+
 <script>
   document.addEventListener("astro:page-load", () => {
     const menuToggle = document.getElementById("menuToggle") as HTMLButtonElement;
