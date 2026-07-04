@@ -1,12 +1,29 @@
 ---
+import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import web3Desktop from "@/assets/image-web-3-desktop.jpg";
-import web3Mobile from "@/assets/image-web-3-mobile.jpg";
+
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/*.{jpeg,jpg,png,gif}");
+const web3Desktop = images["/src/assets/image-web-3-desktop.jpg"]?.();
+const web3Mobile = images["/src/assets/image-web-3-mobile.jpg"]?.();
 ---
 
 <article class="mb-8 sm:mb-0">
-  <Image src={web3Desktop} alt="Web 3.0" class="hidden sm:block" loading="eager" format="webp" />
-  <Image src={web3Mobile} alt="Web 3.0" class="block sm:hidden" loading="eager" format="webp" />
+  {
+    web3Desktop && (
+      <Image
+        src={web3Desktop}
+        alt="Web 3.0"
+        class="hidden sm:block"
+        loading="eager"
+        format="webp"
+      />
+    )
+  }
+  {
+    web3Mobile && (
+      <Image src={web3Mobile} alt="Web 3.0" class="block sm:hidden" loading="eager" format="webp" />
+    )
+  }
   <div class="mt-8 flex flex-col gap-x-8 gap-y-4 lg:flex-row">
     <div class="w-full lg:w-1/2">
       <h1 class="text-[2.5rem] leading-none font-extrabold text-theme-very-dark-blue lg:text-6xl">
